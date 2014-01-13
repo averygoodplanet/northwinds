@@ -1,0 +1,24 @@
+--Find the names of all “sales representatives” who work in London.
+
+--Find the name of the female "sales representative" who work in London and report to the Sales Manager Mr. Steven Buchanan. (Please do not enter any criterion under the "ReportsTo" field when answering this query.)
+
+
+
+--Find the names and addresses of all the suppliers which can provide “tofu”. (Note: You should be able to find two companies.)
+
+
+
+
+--List the sales for orders shipped to France.
+
+
+
+
+
+--Find the products on order from companies based in the UK.
+
+
+
+
+
+--List all the orders taken by the sales representative Anne Dodsworth from the companies based in London along with the unit price and quantity of each order.
