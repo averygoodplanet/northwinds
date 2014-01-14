@@ -19,10 +19,10 @@ ON Suppliers.SupplierID=Products.SupplierID
 WHERE Products.ProductName LIKE '%tofu%';
 
 --4.  List the sales for orders shipped to France.
-
-
-
-
+--I did not find any 'sales' in the northwinds database, so assuming 'sales' here
+--means OrderIDs.
+SELECT Orders.OrderID FROM Orders
+WHERE Orders.ShipCountry=='France';
 
 --5.  Find the products on order from companies based in the UK.
 
