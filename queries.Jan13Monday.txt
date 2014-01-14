@@ -18,12 +18,30 @@ FROM Suppliers INNER JOIN Products
 ON Suppliers.SupplierID=Products.SupplierID
 WHERE Products.ProductName LIKE '%tofu%';
 
---4. **NEED TO REVISE USING ORDER DETAILS TO CALCULATE SALES $) List the sales for orders shipped to France. (*may need to revise this now
-that OrderDetails table is showing with Mike's fix)
---I did not find any 'sales' in the northwinds database, so assuming 'sales' here
---means OrderIDs.
-SELECT Orders.OrderID FROM Orders
-WHERE Orders.ShipCountry=='France';
+--4. List the sales for orders shipped to France.
+
+--Lists line-item sum of each ProductID (some OrderIDs >1 product) without discount
+SELECT (OrderDetails.UnitPrice * OrderDetails.Quantity) AS Total,
+OrderDetails.ProductID, Orders.OrderID
+FROM OrderDetails INNER JOIN Orders
+ON OrderDetails.OrderID==Orders.OrderID
+WHERE Orders.ShipCountry=='France'
+
+--Correctly lists total WITHOUT discount per OrderID shipped to France
+SELECT SUM(OrderDetails.UnitPrice * OrderDetails.Quantity) AS Total, Orders.OrderID
+FROM OrderDetails INNER JOIN Orders
+ON OrderDetails.OrderID==Orders.OrderID
+WHERE Orders.ShipCountry=='France'
+GROUP BY OrderDetails.OrderID
+
+--Correctly with discount
+SELECT SUM(OrderDetails.UnitPrice * OrderDetails.Quantity
+ * (1 - OrderDetails.Discount)) AS Total, Orders.OrderID
+FROM OrderDetails INNER JOIN Orders
+ON OrderDetails.OrderID==Orders.OrderID
+WHERE Orders.ShipCountry=='France'
+GROUP BY OrderDetails.OrderID
+
 
 --5.  Find the products on order from companies based in the UK.
 
