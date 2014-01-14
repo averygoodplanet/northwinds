@@ -12,9 +12,11 @@ AND (TitleofCourtesy=="Ms." OR "Mrs.");
 
 --3.  Find the names and addresses of all the suppliers which can provide “tofu”.
 --(Note: You should be able to find two companies.)
-
-
-
+SELECT Suppliers.CompanyName, Suppliers.Address, Suppliers.City,
+Suppliers.Region, Suppliers.PostalCode, Suppliers.Country
+FROM Suppliers INNER JOIN Products
+ON Suppliers.SupplierID=Products.SupplierID
+WHERE Products.ProductName LIKE '%tofu%';
 
 --4.  List the sales for orders shipped to France.
 
