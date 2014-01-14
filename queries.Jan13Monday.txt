@@ -1,24 +1,26 @@
---Find the names of all “sales representatives” who work in London.
+--1. Find the names of all “sales representatives” who work in London.
+SELECT Employees.FirstName, Employees.LastName FROM Employees.Title
+WHERE Title=="Sales Representative" AND City=="London";
 
---Find the name of the female "sales representative" who work in London and report to the Sales Manager Mr. Steven Buchanan. (Please do not enter any criterion under the "ReportsTo" field when answering this query.)
-
-
-
---Find the names and addresses of all the suppliers which can provide “tofu”. (Note: You should be able to find two companies.)
+--2.  Find the name of the female "sales representative" who work in London and report to the Sales Manager Mr. Steven Buchanan. (Please do not enter any criterion under the "ReportsTo" field when answering this query.)
 
 
 
-
---List the sales for orders shipped to France.
+--3.  Find the names and addresses of all the suppliers which can provide “tofu”. (Note: You should be able to find two companies.)
 
 
 
 
-
---Find the products on order from companies based in the UK.
+--4.  List the sales for orders shipped to France.
 
 
 
 
 
---List all the orders taken by the sales representative Anne Dodsworth from the companies based in London along with the unit price and quantity of each order.
+--5.  Find the products on order from companies based in the UK.
+
+
+
+
+
+--6.  List all the orders taken by the sales representative Anne Dodsworth from the companies based in London along with the unit price and quantity of each order.
