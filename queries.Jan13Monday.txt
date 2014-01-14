@@ -18,7 +18,8 @@ FROM Suppliers INNER JOIN Products
 ON Suppliers.SupplierID=Products.SupplierID
 WHERE Products.ProductName LIKE '%tofu%';
 
---4.  List the sales for orders shipped to France.
+--4.  List the sales for orders shipped to France. (*may need to revise this now
+that OrderDetails table is showing with Mike's fix)
 --I did not find any 'sales' in the northwinds database, so assuming 'sales' here
 --means OrderIDs.
 SELECT Orders.OrderID FROM Orders
@@ -26,9 +27,22 @@ WHERE Orders.ShipCountry=='France';
 
 --5.  Find the products on order from companies based in the UK.
 
+--Get all names of all products being ordered
+SELECT Products.ProductName FROM Products INNER JOIN OrderDetails
+ON Products.ProductID==OrderDetails.ProductID
 
+--Get OrderIDs for products ordered by companies based in UK
+SELECT Orders.OrderID FROM Orders INNER JOIN Customers
+ON Orders.CustomerID==Customers.CustomerID
+WHERE Customers.Country='UK'
 
-
+--COMBINED the above two (2) queries using INNER JOIN to make a working query
+SELECT Products.ProductName
+FROM Products
+INNER JOIN OrderDetails ON Products.ProductID==OrderDetails.ProductID
+INNER JOIN Orders ON Orders.OrderID==OrderDetails.OrderID
+INNER JOIN  Customers ON Orders.CustomerID==Customers.CustomerID
+WHERE Customers.Country='UK'
 
 --6.  List all the orders taken by the sales representative Anne Dodsworth from
 --the companies based in London along with the unit price and quantity of each
