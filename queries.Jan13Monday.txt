@@ -18,7 +18,7 @@ FROM Suppliers INNER JOIN Products
 ON Suppliers.SupplierID=Products.SupplierID
 WHERE Products.ProductName LIKE '%tofu%';
 
---4.  List the sales for orders shipped to France. (*may need to revise this now
+--4. **NEED TO REVISE USING ORDER DETAILS TO CALCULATE SALES $) List the sales for orders shipped to France. (*may need to revise this now
 that OrderDetails table is showing with Mike's fix)
 --I did not find any 'sales' in the northwinds database, so assuming 'sales' here
 --means OrderIDs.
