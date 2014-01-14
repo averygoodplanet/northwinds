@@ -2,11 +2,16 @@
 SELECT Employees.FirstName, Employees.LastName FROM Employees.Title
 WHERE Title=="Sales Representative" AND City=="London";
 
---2.  Find the name of the female "sales representative" who work in London and report to the Sales Manager Mr. Steven Buchanan. (Please do not enter any criterion under the "ReportsTo" field when answering this query.)
+--2.  Find the name of the female "sales representative" who work in London and
+--report to the Sales Manager Mr. Steven Buchanan. (Please do not enter any
+--criterion under the "ReportsTo" field when answering this query.)
+SELECT Employees.FirstName, Employees.LastName FROM Employees
+WHERE Title=="Sales Representative" AND City=="London"
+AND (TitleofCourtesy=="Ms." OR "Mrs.");
 
 
-
---3.  Find the names and addresses of all the suppliers which can provide “tofu”. (Note: You should be able to find two companies.)
+--3.  Find the names and addresses of all the suppliers which can provide “tofu”.
+--(Note: You should be able to find two companies.)
 
 
 
@@ -23,4 +28,6 @@ WHERE Title=="Sales Representative" AND City=="London";
 
 
 
---6.  List all the orders taken by the sales representative Anne Dodsworth from the companies based in London along with the unit price and quantity of each order.
+--6.  List all the orders taken by the sales representative Anne Dodsworth from
+--the companies based in London along with the unit price and quantity of each
+--order.
